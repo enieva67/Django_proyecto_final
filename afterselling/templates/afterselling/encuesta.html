@@ -1,0 +1,28 @@
+{% extends "ProyectoWebApp/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<div style="text-align: center">
+     {% for producto in ldp %}
+<h3 style='color:rgb(50, 250, 50)'>  {{ producto.nombre }} -Codigo : {{ producto.id }}   </h3>
+    {% endfor %}
+    <p style='color:rgb(250, 250, 250)'> Marca el codigo {{ producto_id }} en la pestaña 'Producto'   </p>
+    <p style='color:rgb(250, 250, 250)'> O puedes cambiar de eleccion y elegir otro codigo   </p>
+ <form action="{% url 'encuesta' producto_id %}" method="POST" style="text-align: center;color: rgb(50, 250, 50); margin: 20px auto">
+        {% csrf_token %}
+
+        {{ forms_encuesta.as_div }}
+
+
+
+     <input type="submit" value="Enviar"   style="width: 150px;background-color:rgb(150, 150, 250)">
+
+
+
+
+    </form>
+
+  </div>
+{% endblock %}

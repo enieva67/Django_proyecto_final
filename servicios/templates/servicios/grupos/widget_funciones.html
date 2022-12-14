@@ -1,0 +1,44 @@
+<body>
+
+<table class="table table-bordered" style="color: white;  background-color: rgb(250, 235, 235)">
+
+    <thead>
+
+
+
+    </tr >
+        <th style="color: black; background-color: rgb(50, 150, 250)">Promedio</th>
+        <th style="color: black; background-color: rgb(50, 175, 250)">Varianza</th>
+        <th style="color: black; background-color: rgb(50, 200, 250)">Maximo</th>
+        <th style="color: black; background-color: rgb(50, 225, 250)" >Minimo</th>
+        <th style="color: black; background-color: rgb(50, 250, 250)">Desviacion Standard</th>
+
+    </tr>
+    </thead>
+
+    <tbody>
+<tr class="text-center">
+
+                <td> <a href="{% url 'calcular' archivo_id separador funcion.0 %}" class="btn btn-sm btn-success">Calcular</a> </td>
+                  <td> <a href="{% url 'calcular' archivo_id separador funcion.1 %}" class="btn btn-sm btn-success">Calcular</a> </td>
+                  <td> <a href="{% url 'calcular' archivo_id separador funcion.2 %}" class="btn btn-sm btn-success">Calcular</a> </td>
+                  <td> <a href="{% url 'calcular' archivo_id separador funcion.3 %}" class="btn btn-sm btn-success">Calcular</a> </td>
+                  <td> <a href="{% url 'calcular' archivo_id separador funcion.4 %}" class="btn btn-sm btn-success">Calcular</a> </td>
+              </tr>
+
+
+
+
+
+
+
+
+    </tbody>
+
+
+
+
+
+</table>
+
+</body>

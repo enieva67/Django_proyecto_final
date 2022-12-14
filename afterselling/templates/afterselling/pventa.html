@@ -1,0 +1,66 @@
+{% extends "ProyectoWebApp/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<section class="page-section clearfix">
+    <div class="container">
+       <div class="intro">
+<img class="intro-img img-fluid mb-1 mb-lg-0 rounded" src="{% static 'ProyectoWebApp/img/compra.jpg' %}" alt="">
+</div>
+    </div>
+   <div class="container">
+     <div class="intro">
+
+
+        <div class="intro-text left-0 text-center bg-faded p-1 rounded">
+          <h3 class="section-heading mb-1" >
+            <span class="section-heading-upper">¡Felicitaciones {{cliente}} !</span>
+
+          </h3>
+          <p class="mb-3">Tu pedido llegará al domicilio mencionado pronto
+          </p>
+
+        </div>
+      </div>
+     </div>
+
+  </section>
+<section class="page-section clearfix">
+    <div class="container">
+      <div class="intro">
+        <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{% static 'ProyectoWebApp/img/tecnologia.jpg' %}" alt="">
+        <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+          <h5 class="section-heading mb-4" >
+            <span class="section-heading-upper">Detalle de compra:</span>
+              {% for producto in names %}
+              <p class="mb-3"> Producto : {{ producto.nombre }} </p>
+              <p class="mb-3"> Cantidad : {{ producto.cantidad }} </p>
+              {% endfor %}
+            <span class="section-heading-upper">En {{ cantidad_de_cuotas }} cuotas de {{ monto_de_cuota }} pesos </span>
+          </h5>
+          <p class="mb-3"> Pagando : {{ forma_de_pagar }}       </p>
+
+        </div>
+      </div>
+    </div>
+  </section>
+<section class="page-section clearfix">
+    <br> <br> <br> <br> <br> <br>
+<div class="intro-text left-0 text-center bg-faded p-1 rounded" style="text-align: center; margin: 20px auto;background-color:rgb(150, 150, 250)">
+
+    <h5  >
+            <span >  Tu opinion nos interesa, {{cliente}}</span>
+        <br>
+            <span >puedes realizar esta breve encuesta</span>
+        <br>
+            <span >Selecciona el producto del que quieres opinar </span>
+          </h5>
+<br> <br> <br>
+    {% for producto in names %}
+<a href="{% url 'encuesta' producto.producto_id %}" class="btn btn-success" style="background-color:rgb(50, 150, 50)"> {{ producto.nombre }} {{ producto.producto_id }}   </a>
+    {% endfor %}
+</div>
+</section>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "ProyectoWebApp/base.html" %}
+
+{% load static %}
+
+{% block content %}
+<br>
+<p style="color:white">{{prueba}}</p>
+<br>
+
+{% endblock %}
+
+ <tr class="text-center">
+
+                <td> <a href="{% url 'calcular' archivo_id promedio  %}" class="btn btn-sm btn-success">Calcular</a> </td>
+                  <td> <a href="{% url 'calcular' archivo_id varianza %}" class="btn btn-sm btn-success">Calcular</a> </td>
+                  <td> <a href="{% url 'calcular' archivo_id maximo_minimo %}" class="btn btn-sm btn-success">Calcular</a> </td>
+                  <td> <a href="{% url 'calcular' archivo_id mediana %}" class="btn btn-sm btn-success">Calcular</a> </td>
+                  <td> <a href="{% url 'calcular' archivo_id std %}" class="btn btn-sm btn-success">Calcular</a> </td>
+              </tr>

@@ -1,0 +1,37 @@
+{% extends "ProyectoWebApp/base.html" %}
+
+{% load static %}
+
+{% block content %}
+<div style="text-align: center;">
+    <br>
+    <h5 style="color:white"> Pulse 'volver' para calcular otro estadistico </h5>
+    <br>
+
+     <div style="text-align: center;"><a href="{% url 'mostrar_datos_tabla' archivo_id separador %}" class="btn btn-success"> Volver </a> </div>
+    <br>
+  <div>
+<table class="table table-bordered" style="color: black; background-color: rgb(50, 250, 250)">
+      <thead style="color: black; background-color: rgb(250, 250, 215)">
+
+      {% for v in variables %}
+
+        <th class="text-center" > {{v}} </th>
+
+      {% endfor %}
+
+      <thead>
+      <tbody style="color: black; background-color: rgb(215, 250, 250)">
+
+     <tr>
+         {% for d in datos %}
+
+
+        <td >{{d}}</td>
+        {% endfor %}
+      </tr>
+
+
+     </tbody>
+    </table>
+{% endblock %}

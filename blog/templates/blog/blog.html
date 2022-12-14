@@ -1,0 +1,99 @@
+{% extends "ProyectoWebApp/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+    {% for post in posts %}
+
+    <section class="page-section clearfix">
+        <div class="container">
+          <div class="intro">
+
+
+    <div class="card" style="width: 100%; margin: 5px 5px;">
+
+        <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{post.imagen.url}}" alt="" style="width: 100%;">
+
+        <div class="card-body" style="text-align: center;">
+                <span class="section-heading-lower"><h1> {{post.titulo}}</h1></span>
+            <br>
+            <span class="section-heading-upper"><h3>{{post.contenido}}</h3></span>
+
+ </div >
+         <p>  {{post.content|striptags|safe|truncatechars:"500"}}</p>
+
+
+     <div class="card-footer text-center">
+
+          Autor: {{post.autor}}
+
+              </div>
+<a href="{% url 'agregar_comentario' post.id %}" class="btn btn-success" style="background-color:rgb(50, 150, 50)"> Realizar Comentario  </a>
+<a href="{% url 'mostrar_comentario' post.id %}" class="btn btn-success" style="background-color:rgb(150, 150, 50)"> Mostrar comentarios  </a>
+<a href="{% url 'agregar_posts'  %}" class="btn btn-success" style="background-color:rgb(150, 150, 250)"> Agregar post   </a>
+        {% if posts_id == post.id and mostrar == 1 %}
+        {% include "blog/blogs_widget.html" %}
+         {% endif %}
+        <br>
+        {% if posts_id == post.id and mostrar == 0 %}
+        {% for comentario in comentarios %}
+        <div class="card" style="width: 100%; margin: 1px 1px;text-align: center;">
+
+     <h3 class="card-title" >{{ comentario.autor }} dice: </h3>
+
+ <div class="card-body" style="text-align: center;background-color:rgb(235, 255, 235);">
+
+
+            <p class="card-text" style="text-align: center;width: 100%; margin: 5px 5px;background-color:rgb(150, 250, 250);" >{{ comentario.content }}</p>
+        </div>
+
+        <div class="card-footer text-center">
+
+
+
+        </div>
+
+    </div><!--card que se cierra-->
+        {% endfor %}
+        {% endif %}
+        </div>
+
+                 </div>
+
+
+ </div>
+      </section>
+
+
+
+
+    {% endfor %}
+
+
+    <section>
+        <div class="intro-text left-0 text-center bg-faded p-5 rounded" style="background-color:rgb(150, 150, 50)">
+  <a href="{% url 'agregar_posts'  %}" class="btn btn-success" style="background-color:rgb(50, 150, 50)"> Agregar post   </a>
+            <div>
+        <div style="width: 75%; margin: auto; text-align: center; color: white;">
+        <br>
+          Categorías: 
+
+          {% for post in posts %}
+
+            {% for categoria in post.categorias.all %}
+
+           <a href="{% url 'categoria' categoria.id %}" class="linksCategorias">{{categoria.nombre}} </a>&nbsp;&nbsp;&nbsp;
+
+            {% endfor %}
+        
+          {% endfor %}
+        
+        </div>
+
+
+
+    </section>
+
+
+{% endblock %}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+<div style="text-align: center">
+
+
+ <form enctype="multipart/form-data" action="{% url 'agregar_comentario' post.id %}" method="POST" style="text-align: center;color: rgb(50, 250, 50); margin: 3px auto">
+        {% csrf_token %}
+
+        {{ forms_posts.as_div }}
+
+
+
+     <input type="submit" value="Enviar"   style="width: 150px;background-color:rgb(150, 150, 250)">
+
+
+
+
+    </form>
+
+      </div>
+</body>
+</html>

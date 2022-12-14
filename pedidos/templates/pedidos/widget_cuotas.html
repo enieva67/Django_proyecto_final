@@ -1,0 +1,70 @@
+<table class="table table-bordered" style="color: white;">
+
+    <thead>
+
+        <tr>
+
+            <th colspan="3" class="text-center">
+
+                Plan de financiacion
+
+
+            </th>
+
+
+
+        </tr>
+
+    </tr>
+        <th>Forma de pagar</th>
+        <th>Cuotas</th>
+        <th>Suma</th>
+
+
+    </tr>
+    </thead>
+
+    <tbody>
+
+              <tr class="text-center">
+
+                <td> {{ request.session.cuotas.forma_de_pagar }}</td>
+                <td> {{ request.session.cuotas.cantidad }} </td>
+                <td>
+
+                    <a href="{% url 'agregar_cuota' %}" class="btn btn-sm btn-success">+</a>
+                    <a href="{% url 'disminuir_cuota' %}" class="btn btn-sm btn-success">-</a>
+                    <br/>
+
+                    Importe  {{ request.session.cuotas.monto_de_cuota }}
+
+                </td>
+
+              </tr>  
+
+
+
+    </tbody>
+
+    <tfoot>
+
+        <tr>
+
+            <td colspan="3">
+
+                 Tasa de interes por año  {{ request.session.cuotas.TEA }} %
+
+            </td>
+
+        </tr>
+
+        <tr><td colspan="3" style="text-align: center;">
+
+            <a href="{% url 'procesar_pedido' %}" class="btn btn-success">Hacer compra</a>
+
+        </td></tr>
+
+
+    </tfoot>
+
+</table>

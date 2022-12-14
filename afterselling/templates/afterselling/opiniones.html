@@ -1,0 +1,28 @@
+{% extends "ProyectoWebApp/base.html" %}
+
+{% load static %}
+
+
+<div class="container" style="text-align: center;">
+{% block content %}
+
+<div class="card" style="width: 100%; margin: 5px 5px;text-align: center;">
+     <img src="{{producto.imagen.url}}" class="card-img-top">
+     <h1 class="card-title" >{{producto.nombre}}</h1>
+     {% for o in opiniones %}
+ <div class="card-body" style="text-align: center;background-color:rgb(235, 255, 235);">
+
+            <h3 class="card-text" style="text-align: center;background-color:rgb(150, 255, 150);width: 100%; margin: 5px 5px;" ><strong>{{o.opinion}}</strong></h3>
+            <p class="card-text" style="text-align: center;width: 100%; margin: 5px 5px;background-color:rgb(150, 250, 250);" >{{o.resenia}}</p>
+        </div>
+ {% endfor %}
+        <div class="card-footer text-center">
+
+
+
+        </div>
+
+    </div><!--card que se cierra-->
+
+{% endblock %}
+</div>

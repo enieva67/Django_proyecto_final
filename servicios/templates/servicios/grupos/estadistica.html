@@ -1,0 +1,58 @@
+{% extends "ProyectoWebApp/base.html" %}
+
+{% load static %}
+
+{% block content %}
+<div class="container">
+
+<div style="text-align: center;">
+    <h3 style="color:white"> Seleccione un archivo para analizar </h3>
+    <br>
+
+</div>
+  <div class="row">
+
+{% for archivo in archivos  %}
+
+    <div class="col-md-3">
+
+    <div class="card" style="width: 100%; margin: 5px 5px;">
+
+        <!-- <img src="{{producto.imagen.url}}" class="card-img-top">   -->
+
+        <div class="card-body" style="text-align: center;">
+
+            <h7 class="card-title">{{archivo.nombre}}</h7>
+            <img src="{{archivo.imagen.url}}" class="card-img-top">
+          <!--   <p class="card-text">{{archivo.datos}}&nbsp;</p> -->
+
+
+        </div>
+
+        <div class="card-footer text-center">
+            <div><a href="{% url 'mostrar_datos_tabla' archivo.id separador.0 %}" class="btn btn-success">Mostrar (,)</a> </div>
+<br>
+            <div><a href="{% url 'mostrar_datos_tabla' archivo.id separador.1 %}" class="btn btn-success">Mostrar (;)</a> </div>
+
+        </div>
+
+    </div><!--card que se cierra-->
+
+  </div>
+
+
+
+{% endfor %}
+  </div>
+<br>
+
+</div>
+
+<div style="text-align: center;">
+    <h3 style="color:white"> O cargue un archivo Excell o con extension .csv para hacer calculos estadisticos</h3>
+    <br>
+<a href="{% url 'estadisticos' %}" class="btn btn-success" style="background-color:rgb(50, 150, 50)"> Cargar archivo  </a>
+    <br>
+    <br>
+</div>
+{% endblock %}
