@@ -6,7 +6,7 @@
 <div class="container">
 
 <div style="text-align: center;">
-    <h3 style="color:white"> Cargue el archivo a la base de datos </h3>
+    <h3 style="color:white"> Mostrar el archivo de clientes </h3>
     <br>
 
 </div>
@@ -28,18 +28,15 @@
 
 
         </div>
-
+        {% if archivo.id == 11 %}
         <div class="card-footer text-center">
-            <div><a href="{% url 'mostrar_datos_tabla' archivo.id separador.0 %}" class="btn btn-success">Mostrar (,)</a> </div>
-<br>
-            <div><a href="{% url 'mostrar_datos_tabla' archivo.id separador.1 %}" class="btn btn-success">Mostrar (;)</a> </div>
+            <div><a href="{% url 'mostrar_datos_db' archivo.id separador.0 %}" class="btn btn-success">Mostrar (,)</a> </div>
 
         </div>
-
+       {% endif %}
     </div><!--card que se cierra-->
 
   </div>
-
 
 
 {% endfor %}
@@ -49,10 +46,11 @@
 </div>
 
 <div style="text-align: center;">
-    <h3 style="color:white"> O puede hacer una consulta a la base de datos y obtener el resultado en formato excell </h3>
+    <h3 style="color:white"> O puede obtener el perfil del cliente para acceder a descuentos y promociones  </h3>
     <br>
-<a href="{% url 'estadisticos' %}" class="btn btn-success" style="background-color:rgb(50, 150, 50)"> Cargar archivo  </a>
+<a href="{% url 'cliente_db' %}" class="btn btn-success" style="background-color:rgb(50, 150, 50)"> Obtener el perfil del cliente  </a>
     <br>
     <br>
 </div>
+
 {% endblock %}

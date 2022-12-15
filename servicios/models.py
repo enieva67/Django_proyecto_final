@@ -28,6 +28,26 @@ class DataFrame(models.Model):
     def __str__(self):
         return self.nombre
 
-        
 
+class ClienteEstudio(models.Model):
+    age= models.IntegerField()
+    annual_income=models.BigIntegerField()
+    spscore=models.IntegerField()
 
+    class Meta:
+        verbose_name='cliente_db'
+        verbose_name_plural='clientes_db_estudios'
+
+    def __str__(self):
+       return str(self.age)
+
+class Estudio(models.Model):
+    perfil = models.CharField(max_length=30)
+    imagen = models.ImageField(upload_to="servicios/datos/imagenes", null=True, blank=True)
+
+    class Meta:
+        verbose_name='estudio'
+        verbose_name_plural='estudios'
+
+    def __str__(self):
+       return str(self.perfil)

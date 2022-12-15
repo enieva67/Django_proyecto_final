@@ -1,0 +1,25 @@
+{% extends "ProyectoWebApp/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+  <body>
+<div>
+    <caption >
+    Analisis de datos
+  </caption>
+<div style="text-align: center;">
+     <img src="{{estudio.imagen.url}}" class="card-img-top" style="width: 50%">
+    <br>  <br>  <br>
+    <h5 style="color:white"> Edad: {{ cliente.age }} Perfil: {{ estudio.perfil }} </h5>
+    <br>
+
+     <div style="text-align: center;"><a href="{% url 'probar' 2 %}" class="btn btn-success"> Volver </a> </div>
+    <br>
+
+</div>
+
+</body>
+
+{% endblock %}

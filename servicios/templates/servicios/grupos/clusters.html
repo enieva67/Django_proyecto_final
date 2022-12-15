@@ -1,0 +1,52 @@
+{% extends "ProyectoWebApp/base.html" %}
+
+{% load static %}
+
+{% block content %}
+ <!--
+<table class="table table-bordered" style="color: black; background-color: rgb(50, 250, 250)">
+      <thead style="color: black; background-color: rgb(250, 250, 215)">
+
+
+        <th class="text-center" > Age </th>
+        <th class="text-center" > Annual Income </th>
+        <th class="text-center" >  Spending Score </th>
+
+
+      <thead>
+      <tbody style="color: black; background-color: rgb(215, 250, 250)">
+     {% for cliente in clientes_db %}
+     <tr>
+
+        <td >{{ cliente.age }}</td>
+        <td >{{ cliente.annual_income }}</td>
+        <td >{{ cliente.spscore}}</td>
+
+      </tr>
+      {% endfor %}}
+     </tbody>
+    </table>
+-->
+<table class="table table-bordered" style="color: black; background-color: rgb(50, 250, 250)">
+      <thead style="color: black; background-color: rgb(250, 250, 215)">
+
+        <th class="text-center" > Age </th>
+        <th class="text-center" > Annual Income </th>
+        <th class="text-center" >  Spending Score </th>
+
+
+      <thead>
+      <tbody style="color: black; background-color: rgb(215, 250, 250)">
+     {% for datos in dat %}
+     <tr>
+        <!-- These are table cells -->
+      {% for d in datos %}
+        <td >{{ d }}</td>
+       {% endfor %}
+
+      </tr>
+      {% endfor %}}
+     </tbody>
+    </table>
+
+{% endblock %}
