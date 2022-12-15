@@ -74,6 +74,11 @@
             <a class="nav-link text-uppercase text-expanded" href="{% url 'pages:pages' %}">Comunidad</a>
           </li>
           {% endif %}
+          <li class="nav-item text-uppercase text-expanded">
+            <a class="nav-link" href="/admin/">
+              {% if request.user.is_staff %}Admin{% else %}{% endif %}
+            </a>
+          </li>
         </ul>
       </div>
     </div>
