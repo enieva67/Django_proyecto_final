@@ -70,11 +70,11 @@
           <li class="nav-item {% if request.path|slice:':6' == '/blog/' %}active{% endif %} px-lg-4">
             <a class="nav-link text-uppercase text-expanded" href="{% url 'Blog' %}">Blog</a>
           </li>
-          {% endif %}
-          {% if request.user.is_staff %}
-          <li class="nav-item px-lg-4">
+           <li class="nav-item px-lg-4">
             <a class="nav-link text-uppercase text-expanded" href="{% url 'pages:pages' %}">Comunidad</a>
           </li>
+          {% endif %}
+          {% if request.user.is_staff %}
 
           <li class="nav-item text-uppercase text-expanded">
             <a class="nav-link" href="/admin/"> Admin </a>
